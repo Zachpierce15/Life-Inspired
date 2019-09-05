@@ -1,4 +1,7 @@
 import React from 'react';
+import axios from 'axios';
+
+import MainPage from './mainPage.js'
 
 class App extends React.Component {
   constructor(props) {
@@ -6,10 +9,14 @@ class App extends React.Component {
     this.state = {};
     //bind functions here
   }
+
+  // componentDidMount() {
+  //   axios.get('/')
+  // }
   render() {
     return (
     <div>
-      You are rendering from app
+      <MainPage/>
     </div>
     )
   }

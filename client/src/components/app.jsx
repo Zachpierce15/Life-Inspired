@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import MainPage from './mainPage.js'
+import MainPage from './mainPage/mainPage.js'
 
 class App extends React.Component {
   constructor(props) {

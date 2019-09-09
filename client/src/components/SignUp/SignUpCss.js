@@ -16,13 +16,31 @@ const popup_inner = css`
   position: absolute;
   left: 25%;
   right: 25%;
-  top: 25%;
-  bottom: 25%;
+  top: 15%;
+  bottom: 15%;
   margin: auto;
   background: white;
+  border-radius: 6px;
+`
+const header = css`
+  margin: 10px;
+  text-align: center;
 `
 
+const closeButtonDiv = css`
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: 5px;
+`
+const closeButton = css`
+  border: none;
+  font-size: larger;
+`
 export{
   popup,
-  popup_inner
+  popup_inner,
+  header,
+  closeButtonDiv,
+  closeButton
 }

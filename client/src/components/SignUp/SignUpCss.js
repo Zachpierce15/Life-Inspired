@@ -14,16 +14,16 @@ const popup = css`
 
 const popup_inner = css`
   position: absolute;
-  left: 25%;
-  right: 25%;
-  top: 15%;
-  bottom: 15%;
+  left: 30%;
+  right: 30%;
+  top: 21%;
+  bottom: 20%;
   margin: auto;
-  background: white;
+  background: rgb(210, 232, 233);
   border-radius: 6px;
 `
 const header = css`
-  margin: 10px;
+  margin: 6px 0px;
   text-align: center;
 `
 
@@ -36,11 +36,35 @@ const closeButtonDiv = css`
 const closeButton = css`
   border: none;
   font-size: larger;
+  background: bottom;
 `
+const signUpForm = css`
+  display: flex;
+  justify-content: center;
+`
+const eachLabel = css`
+  font-size: 27px;
+`
+const eachInput = css`
+  margin: 7px 0px 0px 10px;
+  padding: 5px;
+  border-radius: 6px;
+  font-size: 15px;
+`
+const theForm = css`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+`
+
 export{
   popup,
   popup_inner,
   header,
   closeButtonDiv,
-  closeButton
+  closeButton,
+  signUpForm,
+  eachLabel,
+  eachInput,
+  theForm
 }

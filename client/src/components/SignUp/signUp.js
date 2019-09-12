@@ -11,7 +11,42 @@ class SignUp extends React.Component {
       password: '',
       passwordCheck: ''
     }
+    this.onChangeHandler = this.onChangeHandler.bind(this);
   }
+
+  onChangeHandler(e) {
+    if(e.target.name === 'displayName') {
+      this.setState({
+        displayName: e.target.value
+      });
+      console.log(this.state)
+    }
+    if(e.target.name === 'Username') {
+      this.setState({
+        username: e.target.value
+      });
+      console.log(this.state)
+    }
+    if(e.target.name === 'email') {
+      this.setState({
+        email: e.target.value
+      });
+      console.log(this.state)
+    }
+    if(e.target.name === 'password') {
+      this.setState({
+        password: e.target.value
+      });
+      console.log(this.state)
+    }
+    if(e.target.name === 'passwordCheck') {
+      this.setState({
+        passwordCheck: e.target.value
+      });
+      console.log(this.state)
+    }
+  }
+
   render() {
     const { closePopup } = this.props
     return (
@@ -29,31 +64,31 @@ class SignUp extends React.Component {
             <form css={theForm}>
 
                 <label css={eachLabel} >
-                  <input css={eachInput} name='displayName' placeholder='Display Name' type='text'  />
+                  <input onChange={this.onChangeHandler} css={eachInput} name='displayName' placeholder='Display Name' type='text'  />
                 </label>
 
                 <br/>
 
                 <label css={eachLabel}>
-                  <input css={eachInput} name='Username' placeholder='Username' type='text' />
+                  <input onChange={this.onChangeHandler} css={eachInput} name='Username' placeholder='Username' type='text' />
                 </label>
 
               <br />
 
                 <label css={eachLabel}>
-                  <input css={eachInput} name='email' placeholder='Email' type='email' />
+                  <input onChange={this.onChangeHandler} css={eachInput} name='email' placeholder='Email' type='email' />
                 </label>
 
               <br />
 
               <label css={eachLabel}>
-                <input css={eachInput} name='password' placeholder='Password' type='password' />
+                <input onChange={this.onChangeHandler} css={eachInput} name='password' placeholder='Password' type='password' />
               </label>
 
               <br />
 
               <label css={eachLabel}>
-                <input css={eachInput} name='passwordCheck' placeholder='Re-Enter Passward' type='password' />
+                <input onChange={this.onChangeHandler} css={eachInput} name='passwordCheck' placeholder='Re-Enter Passward' type='password' />
               </label>
 
               <div>

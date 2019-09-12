@@ -1,5 +1,5 @@
 import React from 'react';
-import { popup, popup_inner, header, closeButtonDiv, closeButton, signUpForm, eachLabel, eachInput, theForm } from './SignUpCss.js'
+import { popup, popup_inner, header, closeButtonDiv, closeButton, signUpForm, eachLabel, eachInput, theForm, submitButton, submitButtonDiv } from './SignUpCss.js'
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -19,31 +19,26 @@ class SignUp extends React.Component {
       this.setState({
         displayName: e.target.value
       });
-      console.log(this.state)
     }
     if(e.target.name === 'Username') {
       this.setState({
         username: e.target.value
       });
-      console.log(this.state)
     }
     if(e.target.name === 'email') {
       this.setState({
         email: e.target.value
       });
-      console.log(this.state)
     }
     if(e.target.name === 'password') {
       this.setState({
         password: e.target.value
       });
-      console.log(this.state)
     }
     if(e.target.name === 'passwordCheck') {
       this.setState({
         passwordCheck: e.target.value
       });
-      console.log(this.state)
     }
   }
 
@@ -91,8 +86,8 @@ class SignUp extends React.Component {
                 <input onChange={this.onChangeHandler} css={eachInput} name='passwordCheck' placeholder='Re-Enter Passward' type='password' />
               </label>
 
-              <div>
-                <input name='submit' type='submit'/>
+              <div css={submitButtonDiv}>
+                <input css={submitButton} name='submit' type='submit'/>
               </div>
 
             </form>

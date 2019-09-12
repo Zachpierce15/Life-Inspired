@@ -56,7 +56,17 @@ const theForm = css`
   justify-content: center;
   flex-direction: column;
 `
-
+const submitButton = css`
+  border-radius: 16px;
+  margin-top: 10px;
+  width: 81%;
+  font-size: 21px;
+  margin-left: 4px;
+`
+const submitButtonDiv = css`
+  display: flex;
+  justify-content: center;
+`
 export{
   popup,
   popup_inner,
@@ -66,5 +76,7 @@ export{
   signUpForm,
   eachLabel,
   eachInput,
-  theForm
+  theForm,
+  submitButton,
+  submitButtonDiv
 }

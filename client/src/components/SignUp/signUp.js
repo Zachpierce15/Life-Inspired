@@ -12,6 +12,35 @@ class SignUp extends React.Component {
       passwordCheck: ''
     }
     this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.onSubmitHandler = this.onSubmitHandler.bind(this);
+  }
+
+  onSubmitHandler(e) {
+    e.preventDefault();
+    const { submit } = this.props
+    const { displayName, username, email, password, passwordCheck } = this.state
+
+    if( displayName.length > 0) {
+      if(username.length > 0) {
+        if(email.length > 0) {
+          if(password.length >= 6) {
+            if(password === passwordCheck) {
+              submit(this.state)
+            } else {
+              alert('Password does not match.')
+            }
+          } else {
+            alert('Your password must be 6 characters or longer.')
+          }
+        } else {
+          alert('Enter an email.')
+        }
+      } else {
+        alert('Enter a Username.')
+      }
+    } else {
+      alert('Enter a Display Name.')
+    }
   }
 
   onChangeHandler(e) {
@@ -56,7 +85,7 @@ class SignUp extends React.Component {
           <h3 css={header}>~ Anne Frank ~</h3>
           <div css={signUpForm}>
 
-            <form css={theForm}>
+            <form css={theForm} onSubmit={this.onSubmitHandler}>
 
                 <label css={eachLabel} >
                   <input onChange={this.onChangeHandler} css={eachInput} name='displayName' placeholder='Display Name' type='text'  />

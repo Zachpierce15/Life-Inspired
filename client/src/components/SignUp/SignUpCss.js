@@ -14,8 +14,8 @@ const popup = css`
 
 const popup_inner = css`
   position: absolute;
-  left: 30%;
-  right: 30%;
+  left: 35%;
+  right: 35%;
   top: 21%;
   bottom: 20%;
   margin: auto;

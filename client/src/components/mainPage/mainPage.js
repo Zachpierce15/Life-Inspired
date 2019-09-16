@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios'
 import { quote, buttons, eachButton, homePage, author, middleQuote } from './mainPageCSS'
 
 import SignUp from '../SignUp/signUp.js'
@@ -11,6 +12,7 @@ class MainPage extends React.Component {
       signUp: false,
     }
     this.onClickHandler = this.onClickHandler.bind(this);
+    this.newUserCreated = this.newUserCreated.bind(this);
   }
 
   onClickHandler(e) {
@@ -26,6 +28,19 @@ class MainPage extends React.Component {
       this.setState({ signUp: false, signIn: false })
     }
   }
+
+  newUserCreated(data) {
+    console.log('New User being created', data)
+    axios.post('/newUser', data)
+    .then((response) => {
+      console.log('this is coming back', response)
+      this.setState({signUp: false})
+    })
+    .catch((err) => {
+      console.log('ERROR', err)
+    })
+  }
+
   render() {
     const { signIn, signUp } = this.state
 
@@ -47,7 +62,7 @@ class MainPage extends React.Component {
             </div>
 
             <div css={author}>
-              ~ Zachary Michael Pierce 
+              ~ Zachary Michael Pierce ~
             </div>
 
             <div css={buttons}>
@@ -60,12 +75,15 @@ class MainPage extends React.Component {
             </div>
 
           </div>
+
           {signUp ? 
-          <SignUp
-            closePopup={this.onClickHandler}
-          />
-          : null
-        }
+            <SignUp
+              closePopup={this.onClickHandler}
+              submit={this.newUserCreated}
+            />
+            : null
+          }
+
         </div>
         )
     }

@@ -10,5 +10,9 @@ app.use(bodyParser.json())
 app.use(express.static(__dirname + '/../dist'));
 
 app.get('/', (req, res) => res.send('Hello World!'))
+app.post('/newUser', (req, res) => {
+  console.log('this is data coming in', req.body)
+  res.send('This is getting here SERVER')
+})
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

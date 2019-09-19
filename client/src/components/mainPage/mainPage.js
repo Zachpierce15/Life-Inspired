@@ -1,8 +1,9 @@
 import React from 'react';
-import axios from 'axios'
-import { quote, buttons, eachButton, homePage, author, middleQuote } from './mainPageCSS'
+import axios from 'axios';
+import { quote, buttons, eachButton, homePage, author, middleQuote } from './mainPageCSS';
 
-import SignUp from '../SignUp/signUp.js'
+import SignUp from '../SignUp/signUp.js';
+import SignIn from '../SignIn/SignIn';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -83,7 +84,13 @@ class MainPage extends React.Component {
             />
             : null
           }
-
+          {
+            signIn ?
+            <SignIn 
+              closePopup={this.onClickHandler}
+            />
+            :null
+          }
         </div>
         )
     }

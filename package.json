@@ -28,6 +28,7 @@
     "@babel/preset-react": "^7.0.0",
     "@emotion/babel-preset-css-prop": "^10.0.17",
     "babel-loader": "^8.0.6",
+    "eslint-plugin-react-hooks": "^2.0.1",
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.6"
   },

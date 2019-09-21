@@ -17,7 +17,7 @@ const popup_inner = css`
   left: 35%;
   right: 35%;
   top: 21%;
-  bottom: 20%;
+  bottom: 44%;
   margin: auto;
   background: rgb(210, 232, 233);
   border-radius: 6px;
@@ -46,7 +46,7 @@ const eachLabel = css`
   font-size: 27px;
 `
 const eachInput = css`
-  margin: 7px 0px 0px 10px;
+  margin: 7px 0px 15px 10px;
   padding: 5px;
   border-radius: 6px;
   font-size: 15px;
@@ -56,17 +56,7 @@ const theForm = css`
   justify-content: center;
   flex-direction: column;
 `
-const submitButton = css`
-  border-radius: 16px;
-  margin-top: 10px;
-  width: 81%;
-  font-size: 21px;
-  margin-left: 4px;
-`
-const submitButtonDiv = css`
-  display: flex;
-  justify-content: center;
-`
+
 export{
   popup,
   popup_inner,
@@ -76,7 +66,5 @@ export{
   signUpForm, 
   eachInput,
   eachLabel, 
-  theForm,
-  submitButton,
-  submitButtonDiv
+  theForm
 }

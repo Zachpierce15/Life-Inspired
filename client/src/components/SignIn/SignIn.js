@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { popup, popup_inner, closeButton, closeButtonDiv, header, signUpForm, eachInput, eachLabel, theForm, submitButton, submitButtonDiv } from '../SignUp/SignUpCss';
+import { popup, popup_inner, closeButton, closeButtonDiv, header, signUpForm, eachInput, eachLabel, theForm } from './SignInCss';
 
 const useSignIn = (props) => {
   const [email, setEmail] = useState('')

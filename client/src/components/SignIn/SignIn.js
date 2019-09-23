@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { popup, popup_inner, closeButton, closeButtonDiv, header, signUpForm, eachInput, eachLabel, theForm } from './SignInCss';
+import { popup, popup_inner, closeButton, closeButtonDiv, header, signUpForm, eachInput, eachLabel, theForm, submitButton, submitButtonDiv } from './SignInCss';
 
 const useSignIn = (props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const { closePopup } = props
+  const { closePopup, signInUser } = props
 
   return (
     <div css={popup}>
@@ -16,15 +16,18 @@ const useSignIn = (props) => {
         <h3 css={header}>~ Unknown ~</h3>
         <div css={signUpForm}>
 
-          <form css={theForm} >
+          <form css={theForm} onSubmit={(e) => signInUser(e,email, password)}>
 
             <label css={eachLabel}>
-              <input css={eachInput} placeholder='Email' type='text' value={email}/>
+              <input css={eachInput} onChange={(e) => setEmail(e.target.value)} placeholder='Email' type='text' value={email}/>
             </label>
 
             <label css={eachLabel}>
-              <input css={eachInput} placeholder='Password' type='password' value={password}/>
+              <input css={eachInput} onChange={(e) => setPassword(e.target.value)} placeholder='Password' type='password' value={password}/>
             </label>
+            <div css={submitButtonDiv}>
+              <input css={submitButton} type='submit'/>
+            </div>
           </form>
 
         </div>

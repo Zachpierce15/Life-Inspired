@@ -14,6 +14,7 @@ class MainPage extends React.Component {
     }
     this.onClickHandler = this.onClickHandler.bind(this);
     this.newUserCreated = this.newUserCreated.bind(this);
+    this.signInUser = this.signInUser.bind(this);
   }
 
   onClickHandler(e) {
@@ -39,6 +40,26 @@ class MainPage extends React.Component {
     })
     .catch((err) => {
       console.log('ERROR', err)
+    })
+  }
+
+  signInUser(e,email, password) {
+    e.preventDefault()
+    const data = {
+    email,
+    password
+  }
+    axios.get(`/loginUser`, {
+      params: {
+        email: email,
+        password: password
+      }
+    })
+    .then((response) => {
+      console.log(response.data.rows[0])
+    })
+    .catch((err) => {
+      console.log(err)
     })
   }
 
@@ -88,6 +109,7 @@ class MainPage extends React.Component {
             signIn ?
             <SignIn 
               closePopup={this.onClickHandler}
+              signInUser={this.signInUser}
             />
             :null
           }

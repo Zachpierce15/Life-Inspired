@@ -44,10 +44,12 @@ const signUpForm = css`
 `
 const eachLabel = css`
   font-size: 27px;
+  padding-top: 15px;
+  margin: auto;
 `
 const eachInput = css`
-  margin: 7px 0px 15px 10px;
-  padding: 5px;
+  margin: 15px 0px 4px 0px auto;
+  padding: 10px;
   border-radius: 6px;
   font-size: 15px;
 `
@@ -55,6 +57,18 @@ const theForm = css`
   display: flex;
   justify-content: center;
   flex-direction: column;
+`
+const submitButton = css`
+  border-radius: 16px;
+  margin-top: 10px;
+  width: 81%;
+  font-size: 21px;
+  margin-left: 4px;
+`
+const submitButtonDiv = css`
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
 `
 
 export{
@@ -66,5 +80,7 @@ export{
   signUpForm, 
   eachInput,
   eachLabel, 
-  theForm
+  theForm,
+  submitButton,
+  submitButtonDiv
 }

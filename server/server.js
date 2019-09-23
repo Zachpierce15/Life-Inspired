@@ -11,7 +11,16 @@ app.use(bodyParser.json())
 app.use(express.static(__dirname + '/../dist'));
 
 // ========= Get Routes =========
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/loginUser', (req, res) => {
+  const { email, password } = req.query
+  model.getUser(email, password, (err, userData) => {
+    if(err) {
+      res.send(err).status(400)
+    } else {
+      res.send(userData).status(200)
+    }
+  })
+})
 
 // ======== Post Routes ========
 app.post('/newUser', (req, res) => {

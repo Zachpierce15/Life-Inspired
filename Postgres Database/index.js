@@ -34,6 +34,17 @@ pool.connect()
       }
     });
   }
+
+  const getUser = (email, password, cb) => {
+    pool.query(`SELECT * FROM USERS where email = '${email}' AND password = '${password}'`, (err, data) => {
+      if(err) {
+        console.log('THERE HAS BEEN AN ERROR', err)
+        cb(err)
+      } else {
+      cb(null, data)
+      }
+    })
+  }
 // ======== DELETE Request ========
   const deleteMessages = () => {
     pool.query(`DELETE FROM messages WHERE id=2`, (err,data) => {
@@ -48,5 +59,6 @@ pool.connect()
   module.exports = {
     addUsers, 
     getMessages,
-    deleteMessages
+    deleteMessages,
+    getUser
   }

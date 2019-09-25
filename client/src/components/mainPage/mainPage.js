@@ -4,6 +4,7 @@ import { quote, buttons, eachButton, homePage, author, middleQuote } from './mai
 
 import SignUp from '../SignUp/signUp.js';
 import SignIn from '../SignIn/SignIn';
+import UserPage from '../userPage/userPage'
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class MainPage extends React.Component {
     this.state = {
       signIn: false,
       signUp: false,
+      userData: undefined
     }
     this.onClickHandler = this.onClickHandler.bind(this);
     this.newUserCreated = this.newUserCreated.bind(this);
@@ -57,6 +59,11 @@ class MainPage extends React.Component {
     })
     .then((response) => {
       console.log(response.data.rows[0])
+      if(response.data.rows[0] !== undefined) {
+        this.setState({userData: response.data.rows[0]})
+      } else {
+        alert('User not found')
+      }
     })
     .catch((err) => {
       console.log(err)
@@ -64,57 +71,64 @@ class MainPage extends React.Component {
   }
 
   render() {
-    const { signIn, signUp } = this.state
+    const { signIn, signUp, userData } = this.state
+      if(userData === undefined){
+        return (
+          <div css={homePage}>
 
-      return (
-        <div css={homePage}>
+            <div>
 
-          <div>
+              <div css={quote}>
+                "There's No Such Thing As A Bad Day.
+              </div> 
 
-            <div css={quote}>
-              "There's No Such Thing As A Bad Day.
-            </div> 
+              <div css={middleQuote}>
+                Just Days You Haven't
+              </div>
 
-            <div css={middleQuote}>
-              Just Days You Haven't
+              <div css={quote}>
+                Looked Hard Enough For The Good In It."
+              </div>
+
+              <div css={author}>
+                ~ Zachary Michael Pierce ~
+              </div>
+
+              <div css={buttons}>
+                <button css={eachButton} onClick={this.onClickHandler} name='sign in'>
+                  Sign In
+                </button>
+                <button css={eachButton} onClick={this.onClickHandler} name='sign up'>
+                  Sign Up
+                </button>  
+              </div>
+
             </div>
 
-            <div css={quote}>
-              Looked Hard Enough For The Good In It."
-            </div>
-
-            <div css={author}>
-              ~ Zachary Michael Pierce ~
-            </div>
-
-            <div css={buttons}>
-              <button css={eachButton} onClick={this.onClickHandler} name='sign in'>
-                Sign In
-              </button>
-              <button css={eachButton} onClick={this.onClickHandler} name='sign up'>
-                Sign Up
-              </button>  
-            </div>
-
+            {signUp ? 
+              <SignUp
+                closePopup={this.onClickHandler}
+                submit={this.newUserCreated}
+              />
+              : null
+            }
+            {
+              signIn ?
+              <SignIn 
+                closePopup={this.onClickHandler}
+                signInUser={this.signInUser}
+              />
+              :null
+            }
           </div>
-
-          {signUp ? 
-            <SignUp
-              closePopup={this.onClickHandler}
-              submit={this.newUserCreated}
-            />
-            : null
-          }
-          {
-            signIn ?
-            <SignIn 
-              closePopup={this.onClickHandler}
-              signInUser={this.signInUser}
-            />
-            :null
-          }
-        </div>
+          )
+      } else {
+        return (
+          <div>
+            <UserPage userInfo={userData}/>
+          </div>
         )
+      }
     }
   }
 

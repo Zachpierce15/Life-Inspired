@@ -1,5 +1,4 @@
-# Starter-Repo
+# Life-Inspired
 ## Instructions
-   1. Create a new Repository
-   2. Use this repo as the import repository.
-   3. Get started on new Project! 
+   1. NPM install
+   2. Life Inspired App ready to use/view
